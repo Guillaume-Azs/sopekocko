@@ -9,10 +9,10 @@ router.post("/", auth, multer, sauceCtrl.createSauce);
 
 router.put("/:id", auth, multer, sauceCtrl.modifySauce);
 
-router.delete("/:id", auth, multer, sauceCtrl.deleteSauce);
+router.delete("/:id", auth, sauceCtrl.deleteSauce);
 
-router.get("/:id", auth, multer, sauceCtrl.getOneSauce);
+router.get("/:id", auth, sauceCtrl.getOneSauce);
 
-router.get("/", auth, multer, sauceCtrl.getAllSauces);
+router.get("/", auth, sauceCtrl.getAllSauces);
 
 module.exports = router;
