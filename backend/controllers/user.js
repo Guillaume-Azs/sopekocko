@@ -20,12 +20,14 @@ exports.signup = (req, res) => {
 
 exports.login = (req, res) => {
   User.findOne({ email: req.body.email })
+    // eslint-disable-next-line consistent-return
     .then((user) => {
       if (!user) {
         return res.status(401).json({ error: 'Utilisateur non trouvé ! ' });
       }
       bcrypt
         .compare(req.body.password, user.password)
+        // eslint-disable-next-line consistent-return
         .then((valid) => {
           if (!valid) {
             return res.status(401).json({ error: 'Mot de passe incorrect ! ' });
